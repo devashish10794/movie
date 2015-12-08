@@ -2,24 +2,9 @@
 <html>
 
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Movies</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+<title>Movies</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/stylish-portfolio.css" rel="stylesheet">
 </head>
 <body>
 
@@ -31,7 +16,7 @@ $a = preg_replace('/\s+/', '+', $a);
 $b=$a;
 $q = str_replace('+', ' ', $b);
 echo "<h2>Top searches related to ".$q."</h2>";
-$sql = "select actor_id FROM movie WHERE actor='$q'";
+$sql = "select actor_id FROM movie WHERE actor='$q' AND time>=date_sub(now(), 24 hours)";
 if (mysql_query($sql))
 {
    $result=mysqli_query($conn, $sql);
