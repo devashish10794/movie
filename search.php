@@ -25,24 +25,41 @@
 
 <?php
 include "simple_html_dom.php";
+include "db_con.php";
 $a=$_GET['search'];
 $a = preg_replace('/\s+/', '+', $a);
-echo "<h2>" . $a . "</h2>";
-$url="http://www.imdb.com/find?ref_=nv_sr_fn&q=".$a."&s=nm";
-$html= file_get_contents($url);
-$dom = new DOMDocument();
- @$dom->loadHTML($html);
-$xPath = new DOMXPath($dom);
-$elements = $xPath->query("//td/a");
-foreach ($elements as $e) 
+$b=$a;
+$q = str_replace('+', ' ', $b);
+echo "<h2>Top searches related to ".$q."</h2>";
+$sql = "select actor_id FROM movie WHERE actor='$q'";
+if (mysql_query($sql))
 {
-    if($e->nodeValue!=NULL)
+   $result=mysqli_query($conn, $sql);
+   $row = mysqli_fetch_row($result);
+   header('Location: http://localhost/movies/actor.php?search='.$row[0].'');
+} 
+else 
+{    
+	$url="http://www.imdb.com/find?ref_=nv_sr_fn&q=".$a."&s=nm";
+	$html= file_get_contents($url);
+	$dom = new DOMDocument();
+ 	@$dom->loadHTML($html);
+	$xPath = new DOMXPath($dom);
+	$elements = $xPath->query("//td/a");
+	foreach ($elements as $e) 
 	{
-        echo "<a href='actor.php?search=".$e->getAttribute('href')."'>".$e->nodeValue. "<br /></a>";
-   		
-    }
+	   	 if($e->nodeValue!=NULL)
+		{
+        	$x=$e->getAttribute('href');
+        	$y=$e->nodeValue;
+       		$sql = "INSERT INTO movie (actor,actor_id) VALUES ('$y','$x')";
+			mysqli_query($conn, $sql);
+      	    echo "<a href='actor.php?search=".$x."'>".$y. "<br /></a>";
+        }
+	}
 }
 
+mysqli_close($conn);
 ?>
 
 </body>
