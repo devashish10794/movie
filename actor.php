@@ -1,25 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Movies</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+<title>Movies</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/stylish-portfolio.css" rel="stylesheet">
 </head>
 <body>
 <h2>Top 3 Movies</h2>
@@ -27,7 +11,7 @@
 include "simple_html_dom.php";
 include "db_con.php";
 $a=$_GET['search'];
-$sql = "select mov1,mov1_link,mov2,mov2_link,mov3,mov3_link FROM movie WHERE actor_id='$a'";
+$sql = "select mov1,mov1_link,mov2,mov2_link,mov3,mov3_link FROM movie WHERE actor_id='$a' AND time>=date_sub(now(), 24 hours)";
 $result = mysql_query($sql);
 if ($result)
 {
