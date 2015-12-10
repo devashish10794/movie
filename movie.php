@@ -2,9 +2,15 @@
 echo "<!DOCTYPE html>
 <html>
 <head>
-<title>Movies</title>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/stylish-portfolio.css" rel="stylesheet">
+
+    <title>Movies</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href='css/bootstrap.min.css' rel='stylesheet'>
+
+    <!-- Custom CSS -->
+    <link href='css/stylish-portfolio.css' rel='stylesheet'>
+
 </head>
 <body><h2>Movie Table</h2><br />";
 
@@ -12,7 +18,7 @@ echo "<!DOCTYPE html>
 include "simple_html_dom.php";
 include "db_con.php";
 $a=$_GET['search'];
-$sql = "select img,name,rate,rev1,rev2,rev3 FROM movie_list WHERE id='$a' AND time>=date_sub(now(), 24 hours)";
+$sql = "select img,name,rate,rev1,rev2,rev3 FROM movie_list WHERE id='$a' AND time<=date_sub(now(), 24 hours)";
 
 if (mysql_query($sql))
 {
