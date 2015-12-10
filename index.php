@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>Movies</title>
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/stylish-portfolio.css" rel="stylesheet">
-</head>
-<body>
 
-    <!-- Header -->
+<head>
+
+    
+
+    <title>Movies</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+
+   
+</head>
+
+<body>
+<!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
             <h1>Movies Search Engine</h1>
