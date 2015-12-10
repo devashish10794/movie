@@ -1,10 +1,10 @@
 # movie
-Movies Search Engine is a platform where users can search Actor's/Actress's top movies and their details. It crawls data from "imdb.com" and gets updated after every day. 
+Movies Search Engine is a platform where users can search Actor's/Actress's top movies and their details. It crawls data from "imdb.com". 
 
 Instructions:
 
 a) For Windows User:
-	1) Pre requisites:- 1) Xampp or Wamp
+	1) Pre requisites:- a) Xampp or Wamp
 	2) Extract project in "C->xampp->htdocs" or "C->wamp->www"
 	3) Open Xampp Control Pannel or Wamp Control Pannel set Apache and Mysql Action to Start
 	4) Now open Browser and go to the link "localhost/phpmyadmin"
