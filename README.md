@@ -9,7 +9,7 @@ a) For Windows User:
 	3) Open Xampp Control Pannel or Wamp Control Pannel set Apache and Mysql Action to Start
 	4) Now open Browser and go to the link "localhost/phpmyadmin"
 	5) Import "movies.sql" 
-	6) Open "db_con.php" file and put your mysql creentials
+	6) Open "db_con.php" file and put your mysql credentials
 	7) Open Brower and go to the link "localhost/index.php" and start searching.
 
 b) For Linus Users:
@@ -21,5 +21,5 @@ b) For Linus Users:
 	3) Set Apache server to ON.
 	4) Now open Browser and go to the link "localhost/phpmyadmin"
 	5) Import "movies.sql" 
-	6) Open "db_con.php" file and put your mysql creentials
+	6) Open "db_con.php" file and put your mysql credentials
 	7) Open Brower and go to the link "localhost/index.php" and start searching.
